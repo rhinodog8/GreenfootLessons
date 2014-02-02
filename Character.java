@@ -8,6 +8,10 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
  */
 public class Character extends Actor
 {
+    int maxJumpHeight       = 200;
+    boolean canJump         = true;
+    int currentJumpHeight   = 0;
+    
     /**
      * Act - do whatever the Character wants to do. This method is called whenever
      * the 'Act' or 'Run' button gets pressed in the environment.
@@ -17,18 +21,25 @@ public class Character extends Actor
         int x = this.getX();
         int y = this.getY();
         
-        if(Greenfoot.isKeyDown("up"))
+        if(Greenfoot.isKeyDown("up") && canJump && currentJumpHeight <= maxJumpHeight)
         {
             y = y - 1;
+            
+            // same as currentJumpHeight = currentJumpHeight + 1; just shorter to type
+            currentJumpHeight++;
         }
         else if(this.isTouching(Ground.class))
         {
             // no gravity
+            currentJumpHeight = 0;
+            canJump = true;
         }
         else
         {
             // gravity
             y = y + 1;
+            
+            canJump = false;
         }
         
         if(Greenfoot.isKeyDown("left"))

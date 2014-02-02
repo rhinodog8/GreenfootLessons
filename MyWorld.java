@@ -19,5 +19,7 @@ public class MyWorld extends World
         super(800, 600, 1); 
         
         this.addObject(new Character(), 300, 300);
+        
+        this.addObject(new Ground(), 250, 600);
     }
 }
