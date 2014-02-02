@@ -8,3 +8,8 @@ See: http://www.greenfoot.org/
 Lesson 1:
 
 Character moves and has gravity.
+
+Lesson 2:
+
+Add max jump height to character
+
